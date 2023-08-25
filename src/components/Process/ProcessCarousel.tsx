@@ -18,7 +18,7 @@ const ProcessCarousel = () => {
         component='img'
         image='https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         alt=''
-        sx={{width: '175px', height: '175px', borderRadius:'50%', objectFit: 'cover'}}
+        sx={{width: '175px', height: '175px', borderRadius:'50%', objectFit: 'cover', marginBlockEnd: theme.spacing(3)}}
         />        
       </div>
       <div>
