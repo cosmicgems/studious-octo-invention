@@ -40,7 +40,7 @@ const CreditRepairVsCreditBuilding = () => {
           {/* <div className="video-container min-h-screen "> */}
             <CardMedia
             component="div"
-            className="video-container"
+            className="video-container min-h-screen"
             image={`${ repair ? '/video_demo/credit_repair_vertical.gif' : build ?  '/video_demo/credit_build_vertical.gif' : ''}`} />
               {/* <video autoPlay muted loop className="background-video min-h-screen"  preload="auto">
                 <source src={`${ repair ? '/video_demo/credit_repair_vertical.mp4' : build ?  '/video_demo/credit_build_vertical.mp4' : ''}`} type="video/mp4" />
