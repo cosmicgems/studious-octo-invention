@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import {
   Typography,
-  Button, 
+  Button,
+  CardMedia, 
 } from '@mui/material'
 import theme from '@/styles/theme/lightThemeOptions'
 import { motion } from 'framer-motion'
@@ -36,12 +37,16 @@ const CreditRepairVsCreditBuilding = () => {
     
         {repair || build ?
          <>
-          <div className="video-container min-h-screen ">
-              <video autoPlay muted loop className="background-video min-h-screen"  preload="auto">
+          {/* <div className="video-container min-h-screen "> */}
+            <CardMedia
+            component="div"
+            className="video-container"
+            image={`${ repair ? '/video_demo/credit_repair_vertical.gif' : build ?  '/video_demo/credit_build_vertical.gif' : ''}`} />
+              {/* <video autoPlay muted loop className="background-video min-h-screen"  preload="auto">
                 <source src={`${ repair ? '/video_demo/credit_repair_vertical.mp4' : build ?  '/video_demo/credit_build_vertical.mp4' : ''}`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </div>
+            </div> */}
           <motion.div 
           initial={{opacity:0}}
           animate={{opacity:1}}
