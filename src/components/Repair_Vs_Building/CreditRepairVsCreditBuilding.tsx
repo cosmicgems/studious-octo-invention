@@ -60,7 +60,7 @@ const CreditRepairVsCreditBuilding = () => {
     
 
 
-      <div className='min-h-screen' style={{paddingInline: theme.spacing(3), paddingBlock: theme.spacing(3), backgroundColor: theme.palette.primary.light}}>
+      <div className='min-h-screen' style={{paddingInline: theme.spacing(3), paddingBlock: theme.spacing(3), backgroundColor: `${repair || build ? " " : theme.palette.primary.light }`}}>
           <Typography sx={{marginBlockEnd: theme.spacing(3), color:`${repair ? theme.palette.secondary.main : build ? theme.palette.primary.main : ''}`}} variant='h4' className='text-center ' >
             Let&apos;s meditate on <Typography variant='h4' className='inline-block italic' sx={{}}>Credit Repair</Typography> and <Typography variant='h4' className='inline-block italic' sx={{}}>Credit Building</Typography> 
           </Typography>
