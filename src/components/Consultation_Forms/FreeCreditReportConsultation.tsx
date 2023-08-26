@@ -11,7 +11,7 @@ const FreeCreditReportConsultation = () => {
   }
 
   return (
-    <Box sx={{bgcolor: theme.palette.primary.light}} className=''>
+    <Box sx={{}} className=''>
       <div className='min-h-screen' style={{padding: theme.spacing(3),}}>
 
         <div style={{marginBlockEnd: theme.spacing(1)}}>
@@ -68,7 +68,7 @@ const FreeCreditReportConsultation = () => {
           </Typography>
         </div>
 
-        <div style={{paddingInline: theme.spacing(3)}}>
+        <div style={{paddingInline: theme.spacing(3), marginBlockEnd:theme.spacing(3)}}>
           <form onSubmit={handleSubmit}>
             <TextField fullWidth variant='outlined' value='' label='First Name' sx={{marginBlockEnd: theme.spacing(2)}} className=''/>
             <TextField fullWidth variant='outlined' value='' label='Last Name' sx={{marginBlockEnd: theme.spacing(2)}} className=''/>
@@ -78,11 +78,19 @@ const FreeCreditReportConsultation = () => {
             <TextField fullWidth variant='outlined' value='' label='Zip Code' sx={{marginBlockEnd: theme.spacing(3)}} className=''/>
             <div className='w-full'>
               <Button fullWidth variant='contained' type='submit' size='large'>
-                Start Your Credit Zen Journey Now
+                Start My Credit Zen Journey Now
               </Button>
             </div>
           </form>
         </div>
+
+        <div className='text-center' style={{}}>
+          <Typography variant='body2' sx={{}} className=''>
+          By clicking &apos;Start My Credit Zen Journey Now&apos; I agree by electronic signature to: (1) be contacted by Credit Zen about credit repair or credit repair marketing by a live agent, artificial or prerecorded voice, SMS text at my residential or cellular number, dialed manually or by auto-dialer even if my phone number is on a do-not-call registry, and by email (consent to be contacted is not conditioned to purchase services); and (2) the <Typography variant='body2' sx={{color: '#0FCCF3'}} className='inline-block'> Privacy Policy</Typography> and <Typography variant='body2' sx={{color: '#0FCCF3'}} className='inline-block'>Terms of Use  </Typography>(including this <Typography variant='body2' sx={{color: '#0FCCF3'}} className='inline-block'>arbitration provision</Typography>). 
+          </Typography>
+        </div>
+
+
       </div>
     </Box>
 
