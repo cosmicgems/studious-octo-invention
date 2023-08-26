@@ -26,6 +26,7 @@ const CreditScoreCostToYouCalculator = () => {
             drag="x"
             dragConstraints={{ left: -25, right: 290}}
             dragElastic={0}
+            dragMomentum={false}
             >
           
               <ArrowDropDownRoundedIcon sx={{fontSize: '4rem', color: grey[500],}}/>              
