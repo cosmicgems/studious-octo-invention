@@ -60,14 +60,26 @@ const CreditRepairVsCreditBuilding = () => {
     
 
 
-      <div className='min-h-screen' style={{paddingInline: theme.spacing(3), paddingBlock: theme.spacing(3), backgroundColor: `${repair || build ? " " : theme.palette.primary.light }`}}>
-          <Typography sx={{marginBlockEnd: theme.spacing(3), color:`${repair ? theme.palette.secondary.main : build ? theme.palette.primary.main : ''}`}} variant='h4' className='text-center ' >
-            Let&apos;s meditate on <Typography variant='h4' className='inline-block italic' sx={{}}>Credit Repair</Typography> and <Typography variant='h4' className='inline-block italic' sx={{}}>Credit Building</Typography> 
-          </Typography>
-          <Typography sx={{paddingInline: theme.spacing(3), marginBlockEnd: theme.spacing(6), color:`${repair ? grey[50] : build ? grey[50] : ''}`}} className=' text-center' variant='body1' >
-          Building credit and repairing credit are like tending to a garden – one involves nurturing and cultivating new growth, while the other focuses on pruning and revitalizing existing plants.
-          </Typography>
-          <div style={{marginBlockEnd: theme.spacing(6)}}>
+      <div className='min-h-screen flex flex-col justify-center' style={{paddingInline: theme.spacing(3), paddingBlock: theme.spacing(3), backgroundColor: `${repair || build ? " " : theme.palette.primary.light }`}}>
+
+          {repair || build ?
+            <Typography sx={{marginBlockEnd: theme.spacing(3), color: theme.palette.secondary.main}} variant='h4' className='text-center grow-0 ' >
+              Let&apos;s meditate on <Typography variant='h4' className='inline-block italic' sx={{}}>Credit Repair</Typography> and <Typography variant='h4' className='inline-block italic' sx={{}}>Credit Building</Typography> 
+            </Typography> :  
+            <Typography sx={{marginBlockEnd: theme.spacing(3),  }} variant='h4' className='text-center grow-0' >
+              Let&apos;s meditate on <Typography variant='h4' className='inline-block italic' sx={{}}>Credit Repair</Typography> and <Typography variant='h4' className='inline-block italic' sx={{}}>Credit Building</Typography> 
+            </Typography>          
+          }
+
+          {repair || build ? <div className='grow' /> :
+            <Typography sx={{paddingInline: theme.spacing(3), marginBlockEnd: theme.spacing(6), }} className=' text-center' variant='body1' >
+            Building credit and repairing credit are like tending to a garden – one involves nurturing and cultivating new growth, while the other focuses on pruning and revitalizing existing plants.
+            </Typography>         
+          }
+
+
+
+          <div className='grow' style={{marginBlockEnd: theme.spacing(6)}}>
 
             {opacityRepair >= 0.25 ? 
               <>
@@ -135,7 +147,7 @@ const CreditRepairVsCreditBuilding = () => {
                     style={{height: '7vh', width:'14vh', backgroundColor: theme.palette.primary.main, borderRadius: '10px', }}
                     drag="x"
                     dragConstraints={{ left: 0, right: 255}}
-                    dragElastic={0.05}
+                    dragElastic={0}
                     onDrag={(event, info) => {
                       const newOpacity = 1 - (info.point.x / 400);
                       setOpacityRepair(newOpacity);
@@ -187,15 +199,17 @@ const CreditRepairVsCreditBuilding = () => {
             }
 
             {repair ? 
-              <Typography variant='h6' component='div' sx={{color: grey[50]}} className='' >
+              <Typography variant='h6' component='div' sx={{color: theme.palette.secondary.light}} className='text-center grow' >
                 This is the process where erroneous or unverifiable information is sought after and removed from your credit profile.
               </Typography> 
             : build ?
-              <Typography variant='h6' component='div' sx={{color: grey[50]}} className='' >
+              <Typography variant='h6' component='div' sx={{color: theme.palette.secondary.light}} className='text-center grow' >
                 This is the process of adding items that positively impact your credit profile, and continuing to nurture the good that&apos;s already there.
               </Typography>            
             :null}
+
           </div>
+
           <div className='text-center'>
             <Typography variant='body1' sx={{marginBlockEnd: theme.spacing(3), color:`${repair ? grey[50] : build ? grey[200] : ''}`}} className='' >
               With Credit Zen, you can get some solitude. We have you covered with credit building, and repair.
@@ -204,6 +218,7 @@ const CreditRepairVsCreditBuilding = () => {
             Find out what your credit needs, with a FREE Credit Assessment.
             </Typography>          
           </div>
+          
           <div className='text-center' >
             <Button variant='contained' >
               Start Now
