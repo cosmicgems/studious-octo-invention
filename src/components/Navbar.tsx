@@ -16,9 +16,9 @@ import theme from '@/styles/theme/lightThemeOptions';
 import { grey } from '@mui/material/colors'
 import Drawer from '@mui/material/Drawer';
 import Hidden from '@mui/material/Hidden';
+import { drawerPages } from '@/assets/drawer';
+import Link from 'next/link';
 
-
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const mdDown = theme.breakpoints.down('md');
 
@@ -44,7 +44,7 @@ function Navbar() {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar className='grow-0' position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -99,13 +99,13 @@ function Navbar() {
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {pages.map((page) => (
+              {drawerPages.map((page) => (
                 <Button
-                  key={page}
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
+                  {page.name}
                 </Button>
               ))}
             </Box>
@@ -172,12 +172,22 @@ function Navbar() {
           keepMounted: true, // Better open performance on mobile.
         }}
       >
-        {/* Content of the drawer */}
-        {pages.map((page) => (
-          <MenuItem key={page} onClick={handleCloseNavMenu}>
-            <Typography textAlign="center">{page}</Typography>
-          </MenuItem>
-        ))}
+        <div className='flex flex-col gap-12' style={{padding: theme.spacing(3), }}>
+          {/* Content of the drawer */}
+          {drawerPages.map((page) => (
+            <Link style={{textDecoration: 'none', color: grey[900]}} href={page.path} key={page.name}>
+              <div className='flex flex-row items-center'>
+                <page.icon sx={{fontSize: '2.5rem'}} />
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.name}</Typography>
+                </MenuItem>               
+              </div>
+            
+            </Link>
+
+          ))}          
+        </div>
+
       </Drawer>
       </Hidden>    
     </>
