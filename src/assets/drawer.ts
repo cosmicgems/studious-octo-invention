@@ -5,6 +5,7 @@ import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import TroubleshootRoundedIcon from '@mui/icons-material/TroubleshootRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
 interface Page {
     name: string,
@@ -13,6 +14,11 @@ interface Page {
 }
 
 export const drawerPages : Page[] = [
+    {
+        name: 'Home',
+        path: '/',
+        icon: HomeRoundedIcon
+    },
     {
         name: 'Our Services',
         path: '/our-services',
