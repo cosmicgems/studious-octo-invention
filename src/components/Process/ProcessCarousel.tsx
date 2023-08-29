@@ -16,7 +16,7 @@ const ProcessCarousel = () => {
       <div className='items-center justify-center flex pt-6' style={{}}> 
         <CardMedia 
         component='img'
-        image='https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+        image={process[activeStep].image}
         alt=''
         sx={{width: '175px', height: '175px', borderRadius:'50%', objectFit: 'cover', marginBlockEnd: theme.spacing(3)}}
         />        

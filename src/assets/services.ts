@@ -55,10 +55,6 @@ export const services: Service[] = [
                 inclusion: true
             },
             {
-                name: 'ID Theft Insurance',
-                inclusion: true
-            },
-            {
                 name: 'Debt Handling',
                 inclusion: true
             },
@@ -90,10 +86,6 @@ export const services: Service[] = [
                 inclusion: true
             },
             {
-                name: 'ID Theft Insurance',
-                inclusion: true
-            },
-            {
                 name: 'Debt Handling',
                 inclusion: true
             },
@@ -122,10 +114,6 @@ export const services: Service[] = [
             },
             {
                 name: 'Inquiry Assist',
-                inclusion: true
-            },
-            {
-                name: 'ID Theft Insurance',
                 inclusion: true
             },
             {
