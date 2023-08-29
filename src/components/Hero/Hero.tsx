@@ -12,14 +12,17 @@ import theme from '@/styles/theme/lightThemeOptions'
 
 const Hero = () => {
   return (
-    <div className=' home-container items-end   h-[85vh] ' style={{backgroundImage: 'url("/home_page/family.gif")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
+    <div className=' home-container h-[85vh] ' style={{backgroundImage: 'url("/home_page/family.gif")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
       <div className='overlay' />
-      <div className=' text-center py-6' >
-          <Typography variant='h1' component='div' sx={{color: theme.palette.primary.light, paddingInline: theme.spacing(3), marginBlockEnd: theme.spacing(3)}} className='w-screen'>
+      <div className=' text-center py-6 h-full flex flex-col   justify-end ' >
+          <Typography variant='h3' component='div' sx={{color: theme.palette.primary.light, paddingInline: theme.spacing(3), marginBlockEnd: theme.spacing(3)}} className='w-screen'>
             Smile Again With Credit Zen
           </Typography>     
-          <Typography variant='h5' component='div' sx={{color: theme.palette.secondary.main, paddingInline: theme.spacing(3), marginBlockEnd: theme.spacing(3)}} className='w-screen'>
-            Unlocking Financial Peace. Credit Zen Streamlines Repair, Boosts Scores, and Elevate Lives
+          <Typography variant='h5' component='div' sx={{color: theme.palette.secondary.light, paddingInline: theme.spacing(3), marginBlockEnd: theme.spacing(3)}} className='w-screen'>
+            Unlocking Financial Peace.
+          </Typography>     
+          <Typography variant='h6' component='div' sx={{color: theme.palette.secondary.light, paddingInline: theme.spacing(3), marginBlockEnd: theme.spacing(3)}} className='w-screen'>
+            Credit Zen Streamlines Repair, Boosts Scores, and Elevate Lives
           </Typography>   
           <Box sx={{paddingInline: theme.spacing(3), marginBlockEnd: theme.spacing(4)}}>
             <Button variant='contained' >
