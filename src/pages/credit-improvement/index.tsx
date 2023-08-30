@@ -14,7 +14,6 @@ const CreditImprovementPage = () => {
       <Hero />
       <MeasureUpCTA />
       <FixCredit />
-      <ImproveCredit />
       <BuildCredit />
       <ScoreNeeded />
       <CreditBasics />
