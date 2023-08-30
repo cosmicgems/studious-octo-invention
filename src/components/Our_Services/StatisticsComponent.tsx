@@ -9,19 +9,25 @@ const StatisticsComponent = () => {
     <div className='text-center min-h-screen flex flex-col' style={{padding: theme.spacing(3), backgroundColor: theme.palette.primary.main}}> 
 
       <div>
-        <Typography variant='h3' sx={{marginBlockEnd: theme.spacing(3), color: theme.palette.secondary.main}} className=''>
-          This Could Be You
+        <Typography variant='h3' sx={{marginBlockEnd: theme.spacing(3), color: theme.palette.secondary.light}} className=''>
+          Repair. Improve. Peace.
         </Typography>
       </div>
 
-      <div className='grow items-center justify-center flex flex-col' style={{marginBlockEnd: theme.spacing(3)}}>
-          <CardMedia 
-          component='img'
-          src='/services_video/point_increase_two.gif'
-          alt='Man sitting in front of his computer, which is probably a macbook but I can not be for sure, but he has his arms in the air and fist clenched and he is happy. The image is meant to show that after working with credit zen, you will be at peace and have happiness. Like this guy.'
-          sx={{ width:'33vh', height: '33vh', borderRadius: '50%', boxShadow: '10px 10px 10px 3px  #FAE392', marginBlockEnd: theme.spacing(3)}}
-          className=''
-          />
+      <div className=' items-center justify-center flex flex-col' style={{marginBlockEnd: theme.spacing(3)}}>
+        <div className=' flex  justify-center items-center' style={{width:'37vh', height:'37vh', backgroundColor: theme.palette.primary.light, borderRadius: '50%'}}>
+          <div>
+            <CardMedia 
+            component='img'
+            src='/services_video/point_increase_two.gif'
+            alt='Man sitting in front of his computer, which is probably a macbook but I can not be for sure, but he has his arms in the air and fist clenched and he is happy. The image is meant to show that after working with credit zen, you will be at peace and have happiness. Like this guy.'
+            sx={{ width:'33vh', height: '33vh', borderRadius: '50%', }}
+            className=''
+            />                 
+          </div>
+     
+        </div>
+
 
 
         <div className='flex flex-row ' style={{marginBlockEnd: theme.spacing(3)}}>
@@ -52,7 +58,7 @@ const StatisticsComponent = () => {
       </div>
 
       <div className='grow-0' style={{marginBlockEnd: theme.spacing(3)}}>
-        <Button variant='contained' sx={{backgroundColor: theme.palette.secondary.main, color:grey[900]}} className=''>
+        <Button variant='contained' sx={{backgroundColor: theme.palette.primary.light, color:grey[900]}} className=''>
           Sign up now
         </Button>
       </div>

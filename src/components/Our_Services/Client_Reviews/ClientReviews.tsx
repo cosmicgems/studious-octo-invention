@@ -20,7 +20,7 @@ const ClientReviews = () => {
         </Typography>
       </div>
       <div style={{marginBlockEnd: theme.spacing(3)}}>
-        <Button variant='contained' sx={{backgroundColor: theme.palette.secondary.main}} className=''>
+        <Button variant='contained' sx={{backgroundColor: theme.palette.primary.main}} className=''>
           Get started
         </Button>
       </div>
