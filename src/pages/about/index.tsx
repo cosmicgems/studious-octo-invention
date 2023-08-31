@@ -16,8 +16,8 @@ const AboutPage = () => {
       <CoreValues />
       <VisionStatement />
       <Process/>
-      <DoesItWork/>
-      <ClientTestimonials/>
+      {/* <DoesItWork/>
+      <ClientTestimonials/> */}
       <HowToStart/>
     </div>
   )
