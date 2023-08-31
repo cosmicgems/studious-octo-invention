@@ -5,7 +5,7 @@ import BlogPost from './BlogPost'
 
 const CreditBasics = () => {
   return (
-    <div  style={{backgroundColor: theme.palette.secondary.light}}>
+    <div  style={{backgroundColor: ''}}>
 
       <div className='flex flex-col justify-center items-center text-center' style={{padding: theme.spacing(3)}}>
         
