@@ -8,7 +8,7 @@ import theme from '@/styles/theme/lightThemeOptions';
 
 const CoreValues = () => {
   return (
-    <div className='h-content flex flex-col justify-center items-center '  style={{paddingBlock: theme.spacing(3)}}>
+    <div className='h-content flex flex-col justify-center items-center '  style={{paddingBlockStart: theme.spacing(3)}}>
       <div>
         <Typography variant='h3' sx={{}} className=''>
           Core Values
