@@ -23,13 +23,13 @@ export const features: Features[] = [
         name: 'Creditor Interventions',
     },
     {
+        name: 'TransUnion FICO Score',
+    },
+    {
         name: 'Inquiry Assist',
     },
     {
         name: 'Debt Handler',
-    },
-    {
-        name: 'TransUnion FICO Score',
     },
     {
         name: 'Report Watch Alerts',
@@ -51,20 +51,20 @@ export const services: Service[] = [
                 inclusion: true
             },
             {
+                name: 'TransUnion FICO Score',
+                inclusion: true
+            },
+            {
                 name: 'Inquiry Assist',
                 inclusion: true
             },
             {
                 name: 'Debt Handling',
-                inclusion: true
-            },
-            {
-                name: 'TransUnion FICO Score',
-                inclusion: true
+                inclusion: false
             },
             {
                 name: 'Report Watch Alerts',
-                inclusion: true
+                inclusion: false
             },
         ]
     },
@@ -82,6 +82,10 @@ export const services: Service[] = [
                 inclusion: true
             },
             {
+                name: 'TransUnion FICO Score',
+                inclusion: true
+            },
+            {
                 name: 'Inquiry Assist',
                 inclusion: true
             },
@@ -90,12 +94,8 @@ export const services: Service[] = [
                 inclusion: true
             },
             {
-                name: 'TransUnion FICO Score',
-                inclusion: true
-            },
-            {
                 name: 'Report Watch Alerts',
-                inclusion: true
+                inclusion: false
             },
         ]
     },
@@ -113,15 +113,15 @@ export const services: Service[] = [
                 inclusion: true
             },
             {
+                name: 'TransUnion FICO Score',
+                inclusion: true
+            },
+            {
                 name: 'Inquiry Assist',
                 inclusion: true
             },
             {
                 name: 'Debt Handling',
-                inclusion: true
-            },
-            {
-                name: 'TransUnion FICO Score',
                 inclusion: true
             },
             {
