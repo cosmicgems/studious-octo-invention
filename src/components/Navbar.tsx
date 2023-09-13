@@ -18,11 +18,13 @@ import Drawer from '@mui/material/Drawer';
 import Hidden from '@mui/material/Hidden';
 import { drawerPages } from '@/assets/drawer';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const mdDown = theme.breakpoints.down('md');
 
 function Navbar() {
+  const router = useRouter();
   const [loggedIn, setLoggedIn] = React.useState(false)
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -41,6 +43,14 @@ function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleNavigate = (route:string) => {
+    if (route === "login") {
+      router.push(`/${route}`);
+    } else if (route === "sign-up") {
+      router.push(`/${route}`)
+    }
+  }
 
   return (
     <>
@@ -115,11 +125,11 @@ function Navbar() {
 
               {!loggedIn &&
                 <div className='gap-3 flex flex-row'>
-                    <Button className='' variant='contained' sx={{bgcolor: theme.palette.secondary.main, color: '#000',}}>
+                    <Button className='' onClick={(e)=>{ handleNavigate("login")}} variant='contained' sx={{bgcolor: theme.palette.secondary.main, color: '#000',}}>
                       Login
                     </Button> 
 
-                    <Button variant='contained' sx={{bgcolor: theme.palette.secondary.main, color: '#000'}}>
+                    <Button variant='contained' onClick={(e)=>{ handleNavigate("sign-up")}} sx={{bgcolor: theme.palette.secondary.main, color: '#000'}}>
                       Sign up
                     </Button>      
                 </div>
