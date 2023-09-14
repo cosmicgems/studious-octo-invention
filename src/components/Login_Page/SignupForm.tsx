@@ -12,7 +12,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
 import { states } from '@/assets/states'
 import axios from "axios"
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
 const SignupForm = () => {
 
@@ -44,7 +44,7 @@ const SignupForm = () => {
         day: 0,
         year: 0,
     })
-    const [value, setValue] = React.useState<Dayjs | null>(null);
+    const [value, setValue] = React.useState<any | null>(null);
     const [social, setSocial] = useState<any>({
         sequence_one: "",
         sequence_two: "",
@@ -139,7 +139,8 @@ const SignupForm = () => {
             password: password.password
         })
 
-        console.log(form);
+        // console.log(form);
+        console.log(value);
         
         
     }, [firstName, lastName, username, email, address.line_one, address.line_two, address.city, address.state, address.zip, social.sequence_one, social.sequence_two, social.sequence_three, phone.sequence_one, phone.sequence_two, phone.sequence_three, birthDate.month, birthDate.day, birthDate.year, password.password]);
@@ -442,7 +443,18 @@ const SignupForm = () => {
                                             />
 
 
-                                            <DatePicker value={value} onChange={(newValue)=>{setBirthDate({month: newValue.$M, day:newValue.$D, year: newValue.$y }) ; console.log(birthDate); setValue(newValue)}} />
+                                            <DatePicker
+                                            value={value}
+                                            onChange={(newValue) => {
+                                                setBirthDate({
+                                                month: newValue?.$M ?? null,
+                                                day: newValue?.$D ?? null,
+                                                year: newValue?.$y ?? null,
+                                                });
+                                                setValue(newValue)
+                                                console.log(birthDate);
+                                            }}
+                                            />
 
                                             <div className='flex flex-row justify-center items-center gap-3'>
                                                 {

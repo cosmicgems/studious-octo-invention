@@ -20,6 +20,7 @@ import { drawerPages } from '@/assets/drawer';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { getSession, signOut } from 'next-auth/react';
+import SpaceDashboardRoundedIcon from '@mui/icons-material/SpaceDashboardRounded';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const mdDown = theme.breakpoints.down('md');
@@ -204,19 +205,37 @@ function Navbar() {
       >
         <div className='flex flex-col gap-12' style={{padding: theme.spacing(3), }}>
           {/* Content of the drawer */}
-          {drawerPages.map((page) => (
-            <Link style={{textDecoration: 'none', color: grey[900]}} href={page.path} key={page.name}>
-              <div className='flex flex-row items-center'>
-                <page.icon sx={{fontSize: '2.5rem'}} />
-                <MenuItem onClick={handleCloseNavMenu}>
-                  
-                  <Typography textAlign="center">{page.name}</Typography>
-                </MenuItem>               
-              </div>
-            
-            </Link>
+          {drawerPages.map((page) => {
+            if(loggedIn && page.name === "Client Login"){
+              return (              
+              <Link style={{textDecoration: 'none', color: grey[900]}} href="/dashboard" key="dashboard">
+                <div className='flex flex-row items-center'>
+                  <SpaceDashboardRoundedIcon sx={{fontSize: '2.5rem'}} />
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    
+                    <Typography textAlign="center">Dashboard</Typography>
+                  </MenuItem>               
+                </div>
+              
+              </Link>
+              )
+            }
 
-          ))}          
+            return(
+              <Link style={{textDecoration: 'none', color: grey[900]}} href={page.path} key={page.name}>
+                <div className='flex flex-row items-center'>
+                  <page.icon sx={{fontSize: '2.5rem'}} />
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </MenuItem>               
+                </div>
+              
+              </Link>
+            )
+
+
+          })}          
         </div>
 
       </Drawer>
