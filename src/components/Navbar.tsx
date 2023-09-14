@@ -19,6 +19,7 @@ import Hidden from '@mui/material/Hidden';
 import { drawerPages } from '@/assets/drawer';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { getSession, signOut } from 'next-auth/react';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const mdDown = theme.breakpoints.down('md');
@@ -46,11 +47,23 @@ function Navbar() {
 
   const handleNavigate = (route:string) => {
     if (route === "login") {
-      router.push(`/${route}`);
+      router.push(`/auth/${route}`);
     } else if (route === "sign-up") {
       router.push(`/${route}`)
     }
-  }
+  }    
+  
+  React.useEffect(() => {
+    const checkSession = async () => {
+    const session = await getSession();
+    if (session) {
+        setLoggedIn(true)
+
+    }
+    };
+
+    checkSession();
+}, [router]);
 
   return (
     <>
@@ -136,11 +149,18 @@ function Navbar() {
 
               }
               {loggedIn &&
+              <div className='flex gap-3'>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                   </IconButton>
                 </Tooltip>
+                <div className='gap-3 flex flex-row'>
+                    <Button variant='contained' onClick={(e)=>{ signOut()}} sx={{bgcolor: theme.palette.secondary.main, color: '#000'}}>
+                      Logout
+                    </Button>      
+                </div>
+              </div>
               }
 
 
@@ -189,6 +209,7 @@ function Navbar() {
               <div className='flex flex-row items-center'>
                 <page.icon sx={{fontSize: '2.5rem'}} />
                 <MenuItem onClick={handleCloseNavMenu}>
+                  
                   <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>               
               </div>

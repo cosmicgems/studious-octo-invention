@@ -89,7 +89,8 @@ const SignupForm = () => {
             sequence_one: "",
             sequence_two: "",
             sequence_three: "",
-        }
+        }, 
+        password: password.password
 
     })
     const [signup, setSignup] = useState<boolean>(false);
@@ -134,13 +135,14 @@ const SignupForm = () => {
                 sequence_one: social.sequence_one,
                 sequence_two: social.sequence_two,
                 sequence_three: social.sequence_three
-            }
+            },
+            password: password.password
         })
 
         console.log(form);
         
         
-    }, [firstName, lastName, username, email, address.line_one, address.line_two, address.city, address.state, address.zip, social.sequence_one, social.sequence_two, social.sequence_three, phone.sequence_one, phone.sequence_two, phone.sequence_three, birthDate.month, birthDate.day, birthDate.year]);
+    }, [firstName, lastName, username, email, address.line_one, address.line_two, address.city, address.state, address.zip, social.sequence_one, social.sequence_two, social.sequence_three, phone.sequence_one, phone.sequence_two, phone.sequence_three, birthDate.month, birthDate.day, birthDate.year, password.password]);
 
     const handleSubmit = async(e:any) => {
         e.preventDefault()
@@ -148,10 +150,10 @@ const SignupForm = () => {
         const registrationForm = {
             firstName, lastName,
             email, username, address,
-            phone, social, birthDate
+            phone, social, birthDate, password:password.password
         }
         const signup = await axios.post("/api/auth/signup", {registrationForm})
-        console.log("Submit the form.", signup.data);
+        console.log("Submit the form.", signup.data.new_user);
         
     }
 
@@ -426,7 +428,7 @@ const SignupForm = () => {
                                             variant="outlined" 
                                             className='w-full' 
                                             value={password.password} 
-                                            onChange={(e)=>{setPassword({password:e.target.value})}} 
+                                            onChange={(e)=>{setPassword({...password,password:e.target.value})}} 
                                             label="Password" 
                                             />
                                             <TextField 
@@ -435,12 +437,12 @@ const SignupForm = () => {
                                             variant="outlined" 
                                             className='w-full' 
                                             value={password.confirm} 
-                                            onChange={(e)=>{setPassword({confirm:e.target.value})}} 
+                                            onChange={(e)=>{setPassword({...password,confirm:e.target.value})}} 
                                             label="Confirm Password" 
                                             />
 
 
-                                            <DatePicker onChange={(newValue)=>{setBirthDate({month: newValue.$M, day:newValue.$D, year: newValue.$y }) ; console.log(birthDate);setValue(newValue)}} />
+                                            <DatePicker value={value} onChange={(newValue)=>{setBirthDate({month: newValue.$M, day:newValue.$D, year: newValue.$y }) ; console.log(birthDate); setValue(newValue)}} />
 
                                             <div className='flex flex-row justify-center items-center gap-3'>
                                                 {
@@ -577,7 +579,7 @@ const SignupForm = () => {
                                                 variant="filled" 
                                                 disabled
                                                 className='w-full' 
-                                                value={form.phone.sequence_one} 
+                                                value={form.social.sequence_one} 
                                                 label="SSN #" 
                                                 />
                                                 <Typography variant='h6' sx={{}} className=''>
@@ -589,7 +591,7 @@ const SignupForm = () => {
                                                 variant="filled"
                                                 disabled 
                                                 className='w-full text-center' 
-                                                value={form.phone.sequence_two} 
+                                                value={form.social.sequence_two} 
                                                 label="" 
                                                 />
                                                 <Typography variant='h6' sx={{}} className=''>
@@ -601,7 +603,7 @@ const SignupForm = () => {
                                                 variant="filled"
                                                 disabled 
                                                 className='w-full' 
-                                                value={form.phone.sequence_three} 
+                                                value={form.social.sequence_three} 
                                                 label="" 
                                                 />
                                                 

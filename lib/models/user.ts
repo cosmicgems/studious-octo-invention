@@ -1,11 +1,11 @@
 import { Schema, model, models, Document } from 'mongoose';
 
 const addressSchema = new Schema({
-    street: String,
+    line_one: String,
+    line_two: String,
     city: String,
     state: String,
-    postalCode: String,
-    country: String,
+    zip: String,
 });
 const birthdateSchema = new Schema({
     month: Number,
@@ -13,14 +13,14 @@ const birthdateSchema = new Schema({
     year: Number,
 });
 const phoneSchema = new Schema({
-    sequence_one: Number,
-    sequence_two: Number,
-    sequence_three: Number,
+    sequence_one: String,
+    sequence_two: String,
+    sequence_three: String,
 });
 const ssnSchema = new Schema({
-    sequence_one: {Number},
-    sequence_two: Number,
-    sequence_three: Number,
+    sequence_one: String,
+    sequence_two: String,
+    sequence_three: String,
 });
 
 
@@ -88,14 +88,14 @@ export interface IUser extends Document {
         year: number;
     };
     phone: {
-        sequence_one: number;
-        sequence_two: number;
-        sequence_three: number;
+        sequence_one: string;
+        sequence_two: string;
+        sequence_three: string;
     };
     securessn: {
-        sequence_one: number;
-        sequence_two: number;
-        sequence_three: number;
+        sequence_one: string;
+        sequence_two: string;
+        sequence_three: string;
     };
     password?: string;
     confirmed_account: boolean;

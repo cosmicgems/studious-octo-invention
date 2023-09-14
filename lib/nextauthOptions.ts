@@ -2,7 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcrypt";
 import connectDB from "./connectDB";
 import { AuthOptions } from "next-auth";
-import User from "./models/user"
+import User from "./models/user";
 import { NextApiRequest, NextApiResponse } from "next";
 
 
@@ -13,11 +13,11 @@ export const nextauthOptions: AuthOptions = {
             id: "credentials",
             credentials: {},
             async authorize(credentials, req) {
-                connectDB()
+                await connectDB()
                 
-                const {emailLogin: email, passwordLogin: password} = credentials as {
-                    emailLogin: string,
-                    passwordLogin: string
+                const {credentialOne: email, credentialTwo: password} = credentials as {
+                    credentialOne: string,
+                    credentialTwo: string
                 }
                 console.log(email, password);
                 
