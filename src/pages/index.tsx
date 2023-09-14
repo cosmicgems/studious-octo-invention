@@ -9,7 +9,7 @@ import CreditCost from '@/components/Credit_Cost/CreditCost'
 
 const inter = Inter({ subsets: ['latin'] })
 
-//Needed another commit
+
 
 export default function Home() {
   return (
